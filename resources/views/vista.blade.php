@@ -22,7 +22,7 @@
             <div class="row align-content-center h-100 px-5">
                 <div class="col text-white">
                     <h1>Alertas Tempranas</h1>
-                    <a class="btn btn-warning" href="/login"> Ingresar</a>
+                    <a class="btn btn-warning" href="login"> Ingresar</a>
                 </div>
                 <div class="col">
                     <img src="img/pafta1.png" alt="">
