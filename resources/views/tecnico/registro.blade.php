@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Alertas Tempranas')
-
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 @section('content_header')
 <h1></h1>
 @stop

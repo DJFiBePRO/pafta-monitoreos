@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Alertas Tempranas')
-
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 @section('content_header')
 
 @stop
@@ -91,7 +91,7 @@
                                 <td>X:{{ $zona->x }} Y:{{ $zona->y }}</td>
                                 <td>
                                     <form action="{{ route('zonas.destroy', $zona->id) }}" method="POST">
-                                        <a href="/patfa-monitoreos/public/zonas/{{ $zona->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="{{ route('zonas.edit',$zona->id) }}" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

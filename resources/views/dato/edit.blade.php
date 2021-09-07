@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Alertas Tempranas')
-
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 @section('content_header')
 
 @stop
@@ -47,7 +47,7 @@
         <h1>Editar Registro</h1>
     </div>
     <div class="card-body">
-        <form class="needs-validation" action="/patfa-monitoreos/public/datos/{{ $dato->id }}" method="POST" novalidate>
+        <form class="needs-validation" action="{{ route('datos.update', $dato->id) }}" method="POST" novalidate>
             @csrf @method('PATCH')
             <div class="form-group">
                 <label>Seleccione Monitoreo:</label>
@@ -145,7 +145,7 @@
             <br>
             <div class="row">
                 <div class="col-md-6">
-                    <a href="/patfa-monitoreos/public/datos" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
+                    <a href="{{ route('datos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
                         Regresar</a>
                 </div>
                 <div class="col-md-6">

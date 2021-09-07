@@ -14,19 +14,29 @@
     <link rel="stylesheet" href="vista.css">
     <title>Alertas Tempranas</title>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <style>
+        body {
+            background: #40ec40;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #1c4733, #176334);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #46e4c9, #8eb9ab);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+
+    </style>
+    @yield('css')
 </head>
 
 <body>
 
     <div id="container">
-        <div data-anchor="Page 1" class="bg-success">
+        <div data-anchor="Page 1" class="">
             <div class="row align-content-center h-100 px-5">
-                <div class="col text-white">
-                    <h1>Alertas Tempranas</h1>
-                    <a class="btn btn-warning" href="login"> Ingresar</a>
-                </div>
-                <div class="col">
-                    <img src="img/pafta1.png" alt="">
+                <div class="col-md-8 col-md-offset-2">
+                    <img src="img/patfa-1.png" alt=""> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <a class="btn btn-primary pull-right" style="text-align: right;width:220px" href="login"> <center>Ingresar</center></a>
                 </div>
             </div>
         </div>
@@ -40,7 +50,7 @@
         @endphp
             <div data-anchor="Page {{ $i }}" class="{{ $contenido['color'] }}">
                 <div class="row align-content-center h-100 px-5">
-                    <div class="col text-white ">
+                    <div class="{{$contenido['color-texto']}} ">
                         <p>{{ $contenido['titulo'] }} </p>
                     </div>
                 </div>

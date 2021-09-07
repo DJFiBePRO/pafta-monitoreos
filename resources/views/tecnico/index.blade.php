@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Alertas Tempranas')
-
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 @section('content_header')
 
 @stop
@@ -84,7 +84,7 @@
                                 @endif</td>
                                 <td>
                                     <form action="{{ route('tecnicos.destroy', $tecnico->id) }}" method="POST">
-                                        <a href="/patfa-monitoreos/public/tecnicos/{{ $tecnico->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="{{ route('tecnicos.edit',$tecnico->id) }}" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

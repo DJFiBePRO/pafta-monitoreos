@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Alertas Tempranas')
-
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 @section('content_header')
 
 @stop
@@ -12,7 +12,7 @@
         <h1>Nuevo Registro</h1>
     </div>
     <div class="card-body">
-      <form class="needs-validation" action="/patfa-monitoreos/public/variedades" method="POST" novalidate>
+      <form class="needs-validation" action="{{route('variedades.store')}}" method="POST" novalidate>
       @csrf
         @include('variedad.form')
       </form>

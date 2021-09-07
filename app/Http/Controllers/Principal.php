@@ -15,13 +15,15 @@ class Principal extends Controller
                 "titulo"=>"Ho",
                 "imagen"=>"la",
                 "texto"=>"0",
-                "color"=>"bg-info",
+                "color"=>"bg-white",
+                "color-texto"=>"text-black",
             ],
             [
                 "titulo"=>"como",
                 "imagen"=>"es",
                 "texto"=>"tas",
-                "color"=>"bg-primary",
+                "color"=>"bg-info",
+                "color-texto"=>"text-white",
             ],
         ];
 

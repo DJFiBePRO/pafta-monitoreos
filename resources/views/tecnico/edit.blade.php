@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Alertas Tempranas')
-
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 @section('content_header')
 
 @stop
@@ -12,7 +12,7 @@
             <h1>Editar Registro</h1>
         </div>
         <div class="card-body">
-            <form class="needs-validation" action="/patfa-monitoreos/public/tecnicos/{{ $tecnico->id }}" method="POST" novalidate>
+            <form class="needs-validation" action="{{ route('tecnicos.update',$tecnico->id) }}" method="POST" novalidate>
                 @csrf @method('PATCH')
                 <div class="form-group">
                     <label for="fenologia">Nombre de Técnico:</label>
@@ -113,7 +113,7 @@
                 <br>
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="/tecnicos" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
+                        <a href="{{ route('tecnicos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
                             Regresar</a>
                     </div>
                     <div class="col-md-6">
