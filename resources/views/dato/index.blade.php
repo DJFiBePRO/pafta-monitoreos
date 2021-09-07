@@ -120,7 +120,6 @@
 
                                     </td>
                                 @endcan
-
                             </tr>
                         @endforeach
                     @else
@@ -148,7 +147,6 @@
                                                 @endforeach
                                                 @can('2')
                                                     <td>
-
                                                         <a href="{{ route('datos.edit', $dato->id) }}"
                                                             class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
 
