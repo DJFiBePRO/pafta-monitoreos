@@ -12,7 +12,7 @@
             <h1>Nuevo Registro</h1>
         </div>
         <div class="card-body">
-        <form class="needs-validation" action="{{ route('datos.store') }}" method="POST" novalidate>
+        <form class="needs-validation" action="{{route('datos.store')}}" method="POST" novalidate>
         @csrf
             @include('dato.form')
         </form>
