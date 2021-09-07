@@ -92,7 +92,7 @@
 <div class="form-group">
     <label>Observaciones:</label>
     <textarea class="form-control" id="observaciones" name="observaciones" placeholder="Agregue Observacion"
-        maxlength="255" required></textarea>
+        maxlength="255" ></textarea>
     <div class="valid-feedback">
         ¡Bien!
     </div>
@@ -116,7 +116,7 @@
 <br>
 <div class="row">
     <div class="col-md-6">
-        <a href="/monitoreos" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
+        <a href="/patfa-monitoreos/public/monitoreos" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
             Regresar</a>
     </div>
     <div class="col-md-6">

@@ -77,7 +77,7 @@
                                 <td>X:{{ $planta->x }} Y:{{ $planta->y }}</td>
                                 <td>
                                     <form action="{{ route('plantas.destroy', $planta->id) }}" method="POST">
-                                        <a href="/plantas/{{ $planta->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/plantas/{{ $planta->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

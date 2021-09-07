@@ -43,7 +43,7 @@
                     </div>
                     <div class="container col-md-2">
                         <div class="text-center justify-content-center">
-                            <a href="/datos" class="btn btn-primary btn-block">Siguiente</a>
+                            <a href="/patfa-monitoreos/public/datos" class="btn btn-primary btn-block">Siguiente</a>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                                 <td>{{ $monitoreo->fechaEjecucion }}</td>
                                 <td>{{ $monitoreo->observaciones }}</td>
                                 <td>
-                                    <a href="/datos" class="btn btn-primary btn-block">Siguiente</a>
+                                    <a href="/patfa-monitoreos/public/datos" class="btn btn-primary btn-block">Siguiente</a>
                                 </td>
                             </tr>
                         @endforeach

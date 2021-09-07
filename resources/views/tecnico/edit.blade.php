@@ -12,7 +12,7 @@
             <h1>Editar Registro</h1>
         </div>
         <div class="card-body">
-            <form class="needs-validation" action="/tecnicos/{{ $tecnico->id }}" method="POST" novalidate>
+            <form class="needs-validation" action="/patfa-monitoreos/public/tecnicos/{{ $tecnico->id }}" method="POST" novalidate>
                 @csrf @method('PATCH')
                 <div class="form-group">
                     <label for="fenologia">Nombre de Técnico:</label>

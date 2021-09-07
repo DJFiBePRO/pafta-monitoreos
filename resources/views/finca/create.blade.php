@@ -12,7 +12,7 @@
             <h1>Nuevo Registro</h1>
         </div>
         <div class="card-body">
-            <form class="needs-validation" action="/fincas" method="POST" novalidate>
+            <form class="needs-validation" action="/patfa-monitoreos/public/fincas" method="POST" novalidate>
                 @csrf
                 @include('finca.form')
             </form>

@@ -115,7 +115,7 @@
                                         </td>
                                         <td>
                                             @if($monitoreo->estado == 'no')
-                                            <a href="/dato/{{ $monitoreo->id }}" class="btn btn-primary"
+                                            <a href="/patfa-monitoreos/public/dato/{{ $monitoreo->id }}" class="btn btn-primary"
                                                 onClick="this.disabled='disabled'">Ir <i
                                                     class="far fa-arrow-alt-circle-right">
                                                 </i> </a>
@@ -143,7 +143,7 @@
                                         @endif
                                         <td>
                                         @if($monitoreo->estado == 'no')
-                                            <a href="/dato/{{ $monitoreo->id }}" class="btn btn-primary"
+                                            <a href="/patfa-monitoreos/public/dato/{{ $monitoreo->id }}" class="btn btn-primary"
                                                 onClick="this.disabled='disabled'">Ir <i
                                                     class="far fa-arrow-alt-circle-right">
                                                 </i> </a>

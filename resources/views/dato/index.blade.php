@@ -108,7 +108,7 @@
                                     <td>
 
                                         <form action="{{ route('datos.destroy', $dato->id) }}" method="POST">
-                                            <a href="/datos/{{ $dato->id }}/edit" class="btn btn-secondary"><i
+                                            <a href="/patfa-monitoreos/public/datos/{{ $dato->id }}/edit" class="btn btn-secondary"><i
                                                     class="fas fa-pencil-alt"></i></a>
                                             @csrf
                                             @method('DELETE')
@@ -149,7 +149,7 @@
                                                 @can('2')
                                                     <td>
 
-                                                        <a href="/datos/{{ $dato->id }}/edit"
+                                                        <a href="/patfa-monitoreos/public/datos/{{ $dato->id }}/edit"
                                                             class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
 
                                                     </td>

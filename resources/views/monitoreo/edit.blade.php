@@ -12,7 +12,7 @@
         <h1>Editar Registro</h1>
     </div>
     <div class="card-body">
-        <form action="/monitoreos/{{ $monitoreo->id }}" class="needs-validation" method="POST" novalidate>
+        <form action="/patfa-monitoreos/public/monitoreos/{{ $monitoreo->id }}" class="needs-validation" method="POST" novalidate>
             @csrf @method('PATCH')
             @can('1')
                 <div class="form-group">

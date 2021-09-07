@@ -91,7 +91,7 @@
                                 <td>X:{{ $zona->x }} Y:{{ $zona->y }}</td>
                                 <td>
                                     <form action="{{ route('zonas.destroy', $zona->id) }}" method="POST">
-                                        <a href="/zonas/{{ $zona->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/zonas/{{ $zona->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

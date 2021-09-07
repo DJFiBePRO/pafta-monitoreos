@@ -84,7 +84,7 @@
                                 @endif</td>
                                 <td>
                                     <form action="{{ route('tecnicos.destroy', $tecnico->id) }}" method="POST">
-                                        <a href="/tecnicos/{{ $tecnico->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/tecnicos/{{ $tecnico->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

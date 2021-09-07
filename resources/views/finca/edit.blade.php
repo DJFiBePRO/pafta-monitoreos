@@ -12,7 +12,7 @@
             <h1>Editar Registro</h1>
         </div>
         <div class="card-body">
-            <form class="needs-validation" action="/fincas/{{ $finca->id }}" method="POST" novalidate>
+            <form class="needs-validation" action="/patfa-monitoreos/public/fincas/{{ $finca->id }}" method="POST" novalidate>
                 @csrf @method('PATCH')
                 <div class="form-goup">
                     <label>Seleccione Zona:</label>

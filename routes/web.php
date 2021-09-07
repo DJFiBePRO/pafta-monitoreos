@@ -31,7 +31,7 @@ use App\Htpp\Controllers\ParroquiaController;
     return view('welcome');
 });*/
 
-Route::get('/login', function () {
+Route::get('login', function () {
     return view('auth.login');
 });
 

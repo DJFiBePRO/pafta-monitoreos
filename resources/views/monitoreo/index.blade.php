@@ -94,7 +94,7 @@
                                 <td>{{ $monitoreo->observaciones }}</td>
                                 <td>
                                     <form action="{{ route('monitoreos.destroy', $monitoreo->id) }}" method="POST">
-                                        <a href="/monitoreos/{{ $monitoreo->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/monitoreos/{{ $monitoreo->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

@@ -71,7 +71,7 @@
                                 <td>{{ $variedad->descripcion }}</td>
                                 <td>
                                     <form action="{{ route('variedades.destroy', $variedad->id) }}" method="POST">
-                                        <a href="/variedades/{{ $variedad->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/variedades/{{ $variedad->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

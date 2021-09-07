@@ -43,7 +43,7 @@
                 </div>
                 <div class="container col-md-2">
                     <div class="text-center justify-content-center">
-                        <a href="/tecnico" class="btn btn-danger btn-block "><i
+                        <a href="/patfa-monitoreos/public/tecnico" class="btn btn-danger btn-block "><i
                                 class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
         </div>
 
 
-        <form class="needs-validation" action="/dato/guardar" method="POST" novalidate>
+        <form class="needs-validation" action="/patfa-monitoreos/public/dato/guardar" method="POST" novalidate>
             @csrf
             @php
                 $contadorLineas = 0;

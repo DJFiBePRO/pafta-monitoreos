@@ -95,7 +95,7 @@
                                 <td>{{ $estudio->activo }}</td>
                                 <td>
                                     <form action="{{ route('estudios.destroy', $estudio->id) }}" method="POST">
-                                        <a href="/estudios/{{ $estudio->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/estudios/{{ $estudio->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

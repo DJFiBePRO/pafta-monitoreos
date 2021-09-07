@@ -12,7 +12,7 @@
             <h1>Nuevo Registro</h1>
         </div>
         <div class="card-body">
-        <form class="needs-validation" action="/datos" method="POST" novalidate>
+        <form class="needs-validation" action="/patfa-monitoreos/public/datos" method="POST" novalidate>
         @csrf
             @include('dato.form')
         </form>

@@ -89,7 +89,7 @@
 
                                 <td>
                                     <form action="{{ route('fincas.destroy', $finca->id) }}" method="POST">
-                                        <a href="/fincas/{{ $finca->id }}/edit" class="btn btn-secondary"><i
+                                        <a href="/patfa-monitoreos/public/fincas/{{ $finca->id }}/edit" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')
