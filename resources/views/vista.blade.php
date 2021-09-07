@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://unpkg.com/pageable@latest/dist/pageable.min.css">
     <link rel="stylesheet" href="vista.css">
     <title>Alertas Tempranas</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <img src="PATFA_T-01.png" alt="">
 </head>
 
 <body>
