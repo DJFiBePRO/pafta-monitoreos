@@ -108,7 +108,7 @@
                                     <td>
 
                                         <form action="{{ route('datos.destroy', $dato->id) }}" method="POST">
-                                            <a href="{{ route('datos.edit', $dato->id) }}" class="btn btn-secondary"><i
+                                            <a href="{{route('datos.edit', $dato->id)}}" class="btn btn-secondary"><i
                                                     class="fas fa-pencil-alt"></i></a>
                                             @csrf
                                             @method('DELETE')
@@ -147,7 +147,7 @@
                                                 @endforeach
                                                 @can('2')
                                                     <td>
-                                                        <a href="{{ route('datos.edit', $dato->id) }}"
+                                                        <a href="{{route('datos.edit', $dato->id)}}"
                                                             class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
 
                                                     </td>
