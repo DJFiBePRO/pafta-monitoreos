@@ -95,7 +95,7 @@
                                 <td>{{ $estudio->activo }}</td>
                                 <td>
                                     <form action="{{ route('estudios.destroy', $estudio->id) }}" method="POST">
-                                        <a href="{{route('estudios.edit', $estudio->id) }}" class="btn btn-secondary"><i
+                                        <a href="{{route('estudios.edit', $estudio->id)}}" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')
