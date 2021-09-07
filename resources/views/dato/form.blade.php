@@ -105,7 +105,7 @@
 <br>
 <div class="row">
     <div class="col-md-6">
-        <a href="{{ route('datos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i> Regresar</a>
+        <a href="{{route('datos.index')}}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i> Regresar</a>
     </div>
     <div class="col-md-6">
         <button class="btn btn-primary btn-block"><i class="far fa-save"> </i> Guardar</button>
