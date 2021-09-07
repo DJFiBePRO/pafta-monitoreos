@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> Alertas Tempranas</title>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
