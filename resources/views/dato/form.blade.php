@@ -18,7 +18,6 @@
             return false;
         }
     }
-
     function soloNum(ev) {
         if (window.event) {
             keynum = ev.keyCode;
@@ -142,5 +141,4 @@
             });
         }, false);
     })();
-
 </script>
