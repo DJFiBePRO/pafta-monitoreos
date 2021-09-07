@@ -47,10 +47,8 @@
                                 class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                     </div>
                 </div>
-
             </div>
         </div>
-
 
         <form class="needs-validation" action="/patfa-monitoreos/public/dato/guardar" method="POST" novalidate>
             @csrf
