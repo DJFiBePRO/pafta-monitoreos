@@ -76,8 +76,8 @@
                                 @endforeach
                                 <td>X:{{ $planta->x }} Y:{{ $planta->y }}</td>
                                 <td>
-                                    <form action="{{ route('plantas.destroy', $planta->id) }}" method="POST">
-                                        <a href="{{ route('plantas.edit',$planta->id) }}" class="btn btn-secondary"><i
+                                    <form action="{{route('plantas.destroy', $planta->id)}}" method="POST">
+                                        <a href="{{route('plantas.edit',$planta->id)}}" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')
@@ -99,8 +99,7 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
 
-    <link href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" rel="stylesheet"
-        type="text/css">
+    <link href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css">
 @stop
 
 @section('js')
