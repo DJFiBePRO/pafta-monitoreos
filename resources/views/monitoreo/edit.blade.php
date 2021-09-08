@@ -12,7 +12,7 @@
         <h1>Editar Registro</h1>
     </div>
     <div class="card-body">
-        <form action="{{ route('monitoreos.update',$monitoreo->id) }}" class="needs-validation" method="POST" novalidate>
+        <form action="{{route('monitoreos.update',$monitoreo->id)}}" class="needs-validation" method="POST" novalidate>
             @csrf @method('PATCH')
             @can('1')
                 <div class="form-group">
@@ -140,7 +140,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="d-grid gap-2">
-                        <a href="route('monitoreos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left">
+                        <a href="{{route('monitoreos.index')}}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left">
                             </i> Regresar</a>
                     </div>
 
