@@ -12,7 +12,7 @@
         <h1>Editar Registro</h1>
     </div>
     <div class="card-body">
-        <form class="needs-validation" action="{{ route('plantas.update',$planta->id) }}" method="POST" novalidate>
+        <form class="needs-validation" action="{{route('plantas.update',$planta->id)}}" method="POST" novalidate>
             @csrf @method('PATCH')
             <div class="form-group">
                 <label>Seleccione Estudio:</label>
@@ -63,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <a href="/plantas" class="btn btn-danger btn-block"><i
+                    <a href="{{route('plantas.index')}}" class="btn btn-danger btn-block"><i
                             class="far fa-arrow-alt-circle-left"></i>Regresar</a>
                 </div>
                 <div class="col-md-6">
