@@ -65,6 +65,7 @@
                             <th>TELÉFONO</th>
                             <th>COORDENADAS</th>
                             <th>VARIEDADES</th>
+                            <th>DENSIDAD</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
@@ -86,7 +87,8 @@
                                     @foreach ($finca->variedades as $variedad)
                                        {{$variedad->descripcion}}<br>
                                     @endforeach
-
+                                </td>
+                                <td>{{ $finca->densidad}}</td>
                                 <td>
                                     <form action="{{ route('fincas.destroy', $finca->id) }}" method="POST">
                                         <a href="{{route('fincas.edit', $finca->id)}}" class="btn btn-secondary"><i
