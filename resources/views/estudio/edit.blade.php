@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label>Código de Estudio:</label>
-                    <input type="text" disabled maxlength="6" onkeypress="return soloLetras(event);" class="form-control"
+                    <input type="text" maxlength="6" onkeypress="return soloLetras(event);" class="form-control"
                         id="codigo" name="codigo" placeholder="Ingrese el código de estudio"
                         value="{{ isset($estudio->codigo) ? $estudio->codigo : '' }}" required>
                     <div class="valid-feedback">
