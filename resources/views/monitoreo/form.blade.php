@@ -116,7 +116,11 @@
 <br>
 <div class="row">
     <div class="col-md-6">
+<<<<<<< HEAD
         <a href="{{route('monitoreos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
+=======
+        <a href="{{ route('monitoreos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left"> </i>
+>>>>>>> ee6f3bd3fd138bad3fcef5fa7b24865599fca0ff
             Regresar</a>
     </div>
     <div class="col-md-6">

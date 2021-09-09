@@ -89,7 +89,7 @@
 
                                 <td>
                                     <form action="{{ route('fincas.destroy', $finca->id) }}" method="POST">
-                                        <a href="{{ route('fincas.edit', $finca->id) }}" class="btn btn-secondary"><i
+                                        <a href="{{route('fincas.edit', $finca->id)}}" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')

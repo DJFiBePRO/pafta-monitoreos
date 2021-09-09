@@ -96,7 +96,7 @@
                                 <td>{{ $monitoreo->observaciones }}</td>
                                 <td>
                                     <form action="{{ route('monitoreos.destroy', $monitoreo->id) }}" method="POST">
-                                        <a href="{{ route('monitoreos.edit', $monitoreo->id)}}" class="btn btn-secondary"><i
+                                        <a href="{{ route('monitoreos.edit', $monitoreo->id) }}" class="btn btn-secondary"><i
                                                 class="fas fa-pencil-alt"></i></a>
                                         @csrf
                                         @method('DELETE')
@@ -123,7 +123,7 @@
                                     <td>{{ $monitoreo->observaciones }}</td>
                                     @can('2')
                                         <td>
-                                            <a href="{{ route('monitoreos.edit', $monitoreo->id)}}" class="btn btn-secondary"><i
+                                            <a href="{{ route('monitoreos.edit', $monitoreo->id) }}" class="btn btn-secondary"><i
                                                     class="fas fa-pencil-alt"></i></a>
                                         </td>
                                     @endcan
