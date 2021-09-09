@@ -169,7 +169,7 @@
         function soloLetras(e) {
             key = e.keyCode || e.which;
             tecla = String.fromCharCode(key).toString();
-            letras = "ABECDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnñopqrstuvwxyzáéíóú";
+            letras = "ABECDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnñopqrstuvwxyzáéíóú0123456789";
 
             especiales = [8, 13];
             tecla_especial = false;
