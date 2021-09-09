@@ -65,7 +65,7 @@
                         <th>ESTUDIO</th>
                         <th>PLANTA</th>
                         <th>FRUTO</th>
-                        <th>INCIDENCIA</th>
+                        <th>INCIDENCIA (%)</th>
                         <th>SEVERIDAD (%)</th>
                         <th>OBSERVACIONES</th>
                         @can('1')
