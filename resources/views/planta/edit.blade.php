@@ -63,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <a href="/plantas" class="btn btn-danger btn-block"><i
+                    <a href="{{route('plantas.index')}}" class="btn btn-danger btn-block"><i
                             class="far fa-arrow-alt-circle-left"></i>Regresar</a>
                 </div>
                 <div class="col-md-6">

@@ -97,7 +97,7 @@
             </div>
             <br>
             <div class="form-group">
-                <label>Incidencia:</label>
+                <label>Severidad:</label>
                 <input type="text" min="0" max="100" onkeypress="return soloNum(event);" maxlength="3"
                     class="form-control" id="incidencia" name="incidencia" placeholder="Ingrese la incidencia"
                     value="{{ isset($dato->incidencia) ? $dato->incidencia : '' }}" required>
@@ -110,7 +110,7 @@
             </div>
             <br>
             <div class="form-group">
-                <label>Severidad:</label>
+                <label>Incidencia:</label>
                 <input disabled type="text" min="0" max="100" onkeypress="return soloNum(event);" maxlength="3"
                     class="form-control" id="severidad" name="severidad" placeholder="Ingrese la severidad"
                     value="{{ isset($dato->severidad) ? $dato->severidad : '' }}" required>

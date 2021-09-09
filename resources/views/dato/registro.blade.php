@@ -71,8 +71,8 @@
                         <tr>
                             <th>Planta</th>
                             <th>Frutos</th>
-                            <th>Insidencia (%)</th>
-                            <th>Severidad</th>
+                            <th>Incidencia </th>
+                            <th>Severidad (%)</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -90,14 +90,15 @@
                                             name="" id=""></td>
                                     <td><input readonly value="{{ $i }}" class="form-control text"
                                             name="fruto[]" id=""></td>
+                                            <td><input type="text" class="form-control" name="incidencia[]"
+                                                id="spTotal-{{ $contadorFilas }}" value="" readonly>
+                                        </td>
                                     <td><input value="" min="0" max="99" minlength="1" maxlength="2"
                                             onkeypress="return soloNum(event);"
                                             onchange="sumar(this.value,{{ $contadorFilas }});"
-                                            class="form-control text" name="incidencia[]" id="" required>
+                                            class="form-control text" name="severidad[]" id="" required>
                                     </td>
-                                    <td><input type="text" class="form-control" name="severidad[]"
-                                            id="spTotal-{{ $contadorFilas }}" value="" readonly>
-                                    </td>
+                                    
                                     <td><button type="button" class="btn btn-primary" id="remove"><i
                                                 class="far fa-times-circle"></i></button></td>
                                 </tr>

@@ -43,7 +43,9 @@
                 </div>
                 <div class="container col-md-2">
                     <div class="text-center justify-content-center">
+                        @can('1')
                         <a href="monitoreos/create" class="btn btn-success">Nuevo Registro</a>
+                        @endcan
                     </div>
                 </div>
             </div>
