@@ -20,11 +20,14 @@ class DatoController extends Controller
     public function index()
     {
         //
-        $datos['datos'] = Dato::all();
-        $datos['monitoreos'] = Monitoreo::all();
-        $datos['plantas'] = Planta::all();
-        $datos['estudios'] = Estudio::all();
-        return view('dato.index', $datos);
+        $datos = DB::table('datos')
+        ->join('monitoreos','datos.idMonitoreo', '=','monitoreos.id')
+        ->join('plantas','datos.idPlanta', '=','plantas.id')
+        ->join('estudios','monitoreos.idEstudio', '=','estudios.id')
+        ->select('datos.id','monitoreos.codigo as codigoMonitoreo','estudios.codigo as codigoEstudio','estudios.nombreEstudio','plantas.codigo as codigoPlanta','datos.fruto','datos.incidencia','datos.severidad','monitoreos.observaciones','monitoreos.idTecnico')
+        ->get();
+        //return dd($datos);
+        return view('dato.index', compact('datos'));
     }
 
     public function registro()
