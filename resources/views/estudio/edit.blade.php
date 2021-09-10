@@ -60,7 +60,7 @@
 
                 <div class="form-group">
                     <label for="fenologia">Nombre de Estudio:</label>
-                    <input type="text" onkeypress="return soloLetras(event);" class="form-control" id="fenologia"
+                    <input type="text" onkeypress="return soloNombre(event);" class="form-control" id="fenologia"
                         name="nombreEstudio" placeholder="Ingrese el nombre de estudio"
                         value="{{ isset($estudio->nombreEstudio) ? $estudio->nombreEstudio : '' }}" required>
                     <div class="valid-feedback">
@@ -198,6 +198,25 @@
                 return false;
             }
         }
+        function soloNombre(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toString();
+            letras = "ABECDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnñopqrstuvwxyzáéíóú";
+    
+            especiales = [8, 32];
+            tecla_especial = false;
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                alert("Ingresar solo letras");
+                return false;
+            }
+        }
+    
     </script>
 
     <script>
