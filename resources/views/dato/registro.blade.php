@@ -93,7 +93,7 @@
                                         <td><input type="text" class="form-control" name="incidencia[]" tabindex="-1"
                                                 id="spTotal-{{ $contadorFilas }}" value="" readonly>
                                         </td>
-                                        <td><input value="" min="0" max="99" minlength="1" maxlength="2"
+                                        <td><input value="" min="0" max="100" minlength="1" maxlength="3"
                                                 onkeypress="return soloNum(event);"
                                                 onchange="sumar(this.value,{{ $contadorFilas }});"
                                                 tabindex="{{ $contadorFilas+1 }}" class="form-control text"
