@@ -140,11 +140,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="d-grid gap-2">
-<<<<<<< HEAD
+
                         <a href="{{route('monitoreos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left">
-=======
-                        <a href="{{route('monitoreos.index')}}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left">
->>>>>>> ee6f3bd3fd138bad3fcef5fa7b24865599fca0ff
                             </i> Regresar</a>
                     </div>
 
