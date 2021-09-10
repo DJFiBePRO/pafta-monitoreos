@@ -99,7 +99,7 @@
             <div class="form-group">
                 <label>Severidad:</label>
                 <input type="text" min="0" max="100" onkeypress="return soloNum(event);" maxlength="3"
-                    class="form-control" id="incidencia" name="incidencia" placeholder="Ingrese la incidencia"
+                    class="form-control" id="severidad" name="severidad" placeholder="Ingrese la severidad"
                      value="{{ isset($dato->severidad) ? $dato->severidad : '' }}" required>
                 <div class="valid-feedback">
                     ¡Bien!
@@ -112,7 +112,7 @@
             <div class="form-group">
                 <label>Incidencia:</label>
                 <input disabled type="text" min="0" max="100" onkeypress="return soloNum(event);" maxlength="3"
-                    class="form-control" id="severidad" name="severidad" placeholder="Ingrese la severidad"
+                    class="form-control" id="incidencia" name="incidencia" placeholder="Ingrese la incidencia"
                    value="{{ isset($dato->incidencia) ? $dato->incidencia : '' }}" required>
                 <div class="valid-feedback">
                     ¡Bien!
@@ -195,6 +195,25 @@
                 });
             }, false);
         })();
+        function sumar(valor) {
+            var total = 0;
+            valor = parseInt(valor); // Convertir el valor a un entero (número).
+
+            total = document.getElementById('incidencia' ).value;
+
+            // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
+            total = (total == null || total == undefined || total == "") ? 0 : total;
+
+            /* Esta es el calculo severidad. */
+            total = (parseInt(valor));
+            if (total > 0) {
+                document.getElementById('incidencia' ).value = 1;
+            } else {
+                // Colocar el resultado en el control "input".
+
+                document.getElementById('incidencia' ).value = total;
+            }
+        }
 </script>
 
 @stop
