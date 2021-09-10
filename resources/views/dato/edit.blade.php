@@ -99,7 +99,7 @@
             <div class="form-group">
                 <label>Severidad:</label>
                 <input type="text" min="0" max="100" onkeypress="return soloNum(event);" maxlength="3"
-                    class="form-control" id="severidad" name="severidad" placeholder="Ingrese la severidad"
+                    class="form-control" id="severidad" name="severidad" placeholder="Ingrese la severidad" onchange="sumar(this.value);"
                      value="{{ isset($dato->severidad) ? $dato->severidad : '' }}" required>
                 <div class="valid-feedback">
                     ¡Bien!
