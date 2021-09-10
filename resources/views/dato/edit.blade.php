@@ -100,7 +100,7 @@
                 <label>Severidad:</label>
                 <input type="text" min="0" max="100" onkeypress="return soloNum(event);" maxlength="3"
                     class="form-control" id="incidencia" name="incidencia" placeholder="Ingrese la incidencia"
-                    value="{{ isset($dato->severidad) ? $dato->severidad : '' }}" required>
+                     value="{{ isset($dato->severidad) ? $dato->severidad : '' }}" required>
                 <div class="valid-feedback">
                     ¡Bien!
                 </div>
