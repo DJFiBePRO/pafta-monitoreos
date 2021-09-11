@@ -6,6 +6,7 @@
 
 @stop
 
+
 @section('content')
     <!--Mensaje Creado -->
     @if (session('estudioGuardado'))
