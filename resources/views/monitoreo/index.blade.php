@@ -71,7 +71,6 @@
                         @endcan
                         <th>OBSERVACIONES</th>
                         <th>ACCIONES</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -105,7 +104,6 @@
                                                 class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </td>
-
                             </tr>
                         @endforeach
                     @else
