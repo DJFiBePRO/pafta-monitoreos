@@ -140,20 +140,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="d-grid gap-2">
-
                         <a href="{{route('monitoreos.index') }}" class="btn btn-danger btn-block"><i class="far fa-arrow-alt-circle-left">
                             </i> Regresar</a>
                     </div>
-
                 </div>
                 <div class="col-md-6">
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary btn-block"><i class="far fa-save"> </i> Guardar</button>
                     </div>
-
                 </div>
             </div>
-
         </form>
     </div>
 </div>
@@ -198,7 +194,6 @@
         }
     }
 </script>
-
 
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields

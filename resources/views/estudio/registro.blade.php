@@ -6,6 +6,7 @@
 
 @stop
 
+
 @section('content')
     <!--Mensaje Creado -->
     @if (session('estudioGuardado'))
@@ -297,6 +298,7 @@
                 "lengthMenu": [
                     [5, 10, 50, 100, -1],
                     [5, 10, 50, 100, "Todos"]
+                    
                 ],
                 responsive: true
             });

@@ -17,7 +17,6 @@
             return false;
         }
     }
-
     function soloNum(ev) {
         if (window.event) {
             keynum = ev.keyCode;
@@ -116,7 +115,6 @@
 <br>
 <div class="row">
     <div class="col-md-6">
-
         <a href="{{ route('monitoreos.index') }}" class="btn btn-danger btn-block"><i
                 class="far fa-arrow-alt-circle-left"> </i>
             Regresar</a>
