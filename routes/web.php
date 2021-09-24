@@ -51,6 +51,7 @@ Route::get('/tecnico', [App\Http\Controllers\TecnicoController::class,'registro'
 //Route::get('/estudio', [App\Http\Controllers\EstudioController::class,'registro'])->middleware(['auth','admin']);
 //Route::get('/monitoreo',[App\Http\Controllers\MonitoreoController::class, 'registro'])->middleware(['auth','admin']);
 Route::get('/dato/{idMonitoreo}', [App\Http\Controllers\DatoController::class, 'pendientes'])->middleware(['auth']);
+Route::get('/vista', [App\Http\Controllers\DatoController::class, 'vista'])->middleware(['auth']);
 Route::post('/dato/guardar',[App\Http\Controllers\DatoController::class, 'guardar'])->middleware(['auth']);
 Route::get('variedades/byfinca', 'App\Http\Controllers\FincaVariedadController@getVariedades')->name('admin.variedades.byfinca')->middleware('admin');
 Route::resource('variedades', 'App\Http\Controllers\VariedadController')->middleware('admin');

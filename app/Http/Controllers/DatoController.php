@@ -29,6 +29,24 @@ class DatoController extends Controller
         //return dd($datos);
         return view('dato.index', compact('datos'));
     }
+    public function vista()
+    {
+        //
+        $tecnicos = DB::table('monitoreos')
+        ->join('estudios','monitoreos.idEstudio', '=','estudios.id')
+        ->select('monitoreos.idTecnico','estudios.id as idEstudio','estudios.codigo','estudios.nombreEstudio')
+        ->distinct()
+        ->get();
+        $datos = DB::table('datos')
+        ->join('monitoreos','datos.idMonitoreo', '=','monitoreos.id')
+        ->join('plantas','datos.idPlanta', '=','plantas.id')
+        ->join('estudios','monitoreos.idEstudio', '=','estudios.id')
+        ->select('datos.id','monitoreos.codigo as codigoMonitoreo','estudios.codigo as codigoEstudio','estudios.nombreEstudio','plantas.codigo as codigoPlanta','datos.fruto','datos.incidencia','datos.severidad','monitoreos.observaciones','monitoreos.idTecnico')
+        ->get();
+        $estudios= Estudio::all();
+        // return dd($estudios);
+        return view('dato.vista', compact('datos','tecnicos','estudios'));
+    }
 
     public function registro()
     {
