@@ -2,8 +2,8 @@
 
 @section('title', "Reporte Monitoreo {$monitoreo->fechaPlanificada}")
 <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
-@section('content_header')
 
+@section('content_header')
 @stop
 
 @section('content')
