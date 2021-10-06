@@ -168,8 +168,10 @@
                 // Colocar el resultado en el control "input".
                 document.getElementById('spTotal-' + codigoId).value = total;
             } else if (total == -1) {
+                // Colocar el resultado en el control "input".
                 document.getElementById('spTotal-' + codigoId).value = 'No existe fruto';
             } else{
+                //Alerta que informa ingreso del rango de numeros
                 alert("Ingresar solo números entre el rango de -1 a 100");
                 document.getElementById('borra-' + codigoId).value = '';
             }
