@@ -43,7 +43,7 @@
                     </div>
                     <div class="container col-md-2">
                         <div class="text-center justify-content-center">
-                            <a href="{{ route('datos.index') }}" class="btn btn-danger btn-block "><i
+                            <a href="/patfa-monitoreos/public/tecnico" class="btn btn-danger btn-block "><i
                                     class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                                         <td><input type="text" class="form-control" name="incidencia[]" tabindex="-1"
                                                 id="spTotal-{{ $contadorFilas }}" value="" readonly>
                                         </td>
-                                        <td><input value="" min="0" max="100" minlength="1" maxlength="3"
+                                        <td><input id="borra-{{ $contadorFilas }}" value="" min="0" max="100" minlength="1" maxlength="3"
                                                 onkeypress="return soloNum(event);"
                                                 onchange="sumar(this.value,{{ $contadorFilas }});"
                                                 tabindex="{{ $contadorFilas+1 }}" class="form-control text"
@@ -162,12 +162,16 @@
 
             /* Esta es el calculo severidad. */
             total = (parseInt(valor));
-            if (total > 0) {
+            if (total > 0 && total <= 100) {
                 document.getElementById('spTotal-' + codigoId).value = 1;
-            } else {
+            } else if(total == 0) {
                 // Colocar el resultado en el control "input".
-
                 document.getElementById('spTotal-' + codigoId).value = total;
+            } else if (total == -1) {
+                document.getElementById('spTotal-' + codigoId).value = 'No existe fruto';
+            } else{
+                alert("Ingresar solo números entre el rango de -1 a 100");
+                document.getElementById('borra-' + codigoId).value = '';
             }
         }
 
@@ -177,7 +181,7 @@
             } else {
                 keynum = ev.which;
             }
-            if ((keynum > 47 && keynum < 58) || keynum == 8 || keynum == 13) {
+            if ((keynum > 47 && keynum < 58) || keynum == 8 || keynum == 13 || keynum == 45) {
                 return true;
             } else {
                 alert("Ingresar solo números");

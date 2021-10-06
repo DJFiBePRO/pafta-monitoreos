@@ -122,7 +122,8 @@
                                                     class="far fa-arrow-alt-circle-right">
                                                 </i> </a>
                                         @else
-                                            Completo <i class="far fa-list-alt"></i>
+                                        Completo <a href="/patfa-monitoreos/public/completo/{{ $monitoreo->id }}"
+                                            class="btn btn-primary"><i class="far fa-list-alt"></i></a>
                                         @endif
                                     </td>
                                     </tr>
@@ -152,7 +153,8 @@
                                                 class="far fa-arrow-alt-circle-right">
                                             </i> </a>
                                     @else
-                                        Completo <i class="far fa-list-alt"></i>
+                                        Completo <a href="/patfa-monitoreos/public/completo/{{ $monitoreo->id }}"
+                                            class="btn btn-primary"><i class="far fa-list-alt"></i></a>
                                     @endif
                                 </td>
                                 </tr>

@@ -48,6 +48,8 @@ class DatoController extends Controller
         return view('dato.vista', compact('datos','tecnicos','estudios'));
     }
 
+    
+
     public function registro()
     {
         //
@@ -178,5 +180,17 @@ class DatoController extends Controller
             ->orderBy('codigo','ASC')
             ->get();
         return view('dato.registro', compact('plantas', 'monitoreo'));
+    }
+    public function completo($idMonitoreo){
+        $monitoreo = Monitoreo::findorFail($idMonitoreo);
+        $datos = DB::table('datos')
+            ->join('monitoreos', 'monitoreos.id', '=', "datos.idMonitoreo")
+            ->join('plantas', 'plantas.id', '=', "datos.idPlanta")
+            ->select('datos.*','plantas.codigo')
+            ->where('datos.idMonitoreo', $idMonitoreo)
+            ->orderBy('codigo','ASC')
+            ->get();
+            //return dd($datos);
+        return view('dato.completo', compact('datos','monitoreo'));
     }
 }

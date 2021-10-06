@@ -329,13 +329,13 @@ return [
             'can'         => '1',
             'active'       => ['plantas', 'plantas*', 'regex:@^plantas/[0-9]+$@']
         ],
-        [
+        /*[
             'text'        => 'Datos',
             'url'         => 'datos',
             'icon'        => 'fas fa-server',
             'can'         => ['1','2'],
             'active'       => ['datos', 'datos*', 'regex:@^datos/[0-9]+$@']
-        ],
+        ],*/
         [
             'text'        => 'Registros Pendientes',
             'url'         => 'tecnico',
