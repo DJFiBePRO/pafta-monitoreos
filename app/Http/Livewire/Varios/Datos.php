@@ -19,8 +19,8 @@ class Datos extends Component
 
     // private $pagination = 5;
     public $cant=10;
-    public $sort='monitoreos.id';
-    public $direction='desc';
+    public $sort='numeracion';
+    public $direction='asc';
 
     public function paginationView()
     {
@@ -42,10 +42,10 @@ class Datos extends Component
         ->join('zonas','fincas.idZona', '=','zonas.id')
         ->join('parroquias','zonas.idParroquia','=','parroquias.id')
         ->join('cantons','parroquias.idCanton','=','cantons.id')
-        ->select(DB::raw('row_number() over(order by datos.id) numeracion'),'plantas.codigo as planta', 'datos.fruto as fruto', 'datos.incidencia as incidencia', 'datos.severidad as severidad', 'fincas.nombreFinca as finca', 'monitoreos.fechaEjecucion as fecha', 'variedads.descripcion as genotipo', 'cantons.nombre as canton', 'parroquias.nombre as parroquia', 'fincas.densidad as densidad')
+        ->select(DB::raw('row_number() over() numeracion'),'plantas.codigo as planta', 'datos.fruto as fruto', 'datos.incidencia as incidencia', 'datos.severidad as severidad', 'fincas.nombreFinca as finca', 'monitoreos.fechaEjecucion as fecha', 'variedads.descripcion as genotipo', 'cantons.nombre as canton', 'parroquias.nombre as parroquia', 'fincas.densidad as densidad')
         //->where('monitoreos.idTecnico',$id)
         //->where('monitoreos.estado',$si)
-        ->orderBy('numeracion')
+        // ->orderBy('numeracion')
         ->orderBy($this->sort, $this->direction)
         ->paginate($this->cant);//Ya funciona xD
 
