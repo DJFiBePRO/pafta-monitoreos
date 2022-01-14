@@ -16,7 +16,7 @@
             </div>
         </div>
         <div
-            class="card-body table-responsive table table-striped table-bordered table-hover table-sm bg-white shadow-lg display nowrap">
+            class="card-body table-responsive">
             <div class="row">
                 <div class="col-sm-12 col-md-6 form-row">
                     <label class="row "><span style="font-weight:normal" class="col">Mostrar</span>
