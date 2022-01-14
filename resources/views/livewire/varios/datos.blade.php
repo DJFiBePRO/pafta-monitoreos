@@ -7,7 +7,7 @@
                 <div class="col-md-10">
                     <h1>Datos Totales</h1> <br>
                     <span>Mostrar</span>
-                    <select class="mx-2 from-control">
+                    <select wire:model="" class="mx-2 form-control">
                         <option value="10">10</option>
                         <option value="25">25</option>
                         <option value="50">50</option>
