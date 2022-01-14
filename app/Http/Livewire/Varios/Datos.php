@@ -18,7 +18,7 @@ class Datos extends Component
     protected $paginationTheme = 'bootstrap';
 
     private $pagination = 5;
-    public $cant;
+    public $cant=10;
 
     public function paginationView()
     {
