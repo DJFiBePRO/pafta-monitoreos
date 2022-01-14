@@ -17,8 +17,10 @@ class Datos extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    private $pagination = 5;
+    // private $pagination = 5;
     public $cant=10;
+    public $sort='monitoreos.id';
+    public $direction='desc';
 
     public function paginationView()
     {
@@ -40,10 +42,11 @@ class Datos extends Component
         ->join('zonas','fincas.idZona', '=','zonas.id')
         ->join('parroquias','zonas.idParroquia','=','parroquias.id')
         ->join('cantons','parroquias.idCanton','=','cantons.id')
-        ->select('plantas.codigo as planta','datos.fruto as fruto','datos.incidencia as incidencia','datos.severidad as severidad','fincas.nombreFinca as finca','monitoreos.fechaEjecucion as fecha','fincas.densidad as densidad','cantons.nombre as canton','parroquias.nombre as parroquia','variedads.descripcion as variedad', 'monitoreos.estado')
+        ->select(DB::raw('row_number() over() numeracion'),'plantas.codigo as planta', 'datos.fruto as fruto', 'datos.incidencia as incidencia', 'datos.severidad as severidad', 'fincas.nombreFinca as finca', 'monitoreos.fechaEjecucion as fecha', 'variedads.descripcion as genotipo', 'cantons.nombre as canton', 'parroquias.nombre as parroquia', 'fincas.densidad as densidad')
         //->where('monitoreos.idTecnico',$id)
         //->where('monitoreos.estado',$si)
-        ->paginate($this->pagination);//Ya funciona xD
+        ->orderBy($this->sort, $this->direction)
+        ->paginate($this->cant);//Ya funciona xD
 
 
         return view('livewire.varios.datos', compact('datos'))
@@ -73,5 +76,20 @@ class Datos extends Component
     public function exportExcel()
     {
         return Excel::download( new DatosExport, 'datos.xlsx' );
+    }
+    
+    public function order($sort){
+        if ($this->sort==$sort) {
+            if ($this->direction == 'desc') {
+                $this->direction = 'asc';
+            } else {
+                $this->direction = 'desc';
+            }
+            
+        } else {
+            $this->sort=$sort; 
+            $this->direction = 'asc';
+        }
+        
     }
 }

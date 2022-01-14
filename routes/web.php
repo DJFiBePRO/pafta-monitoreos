@@ -65,6 +65,5 @@ Route::get('parroquias/bycanton', 'App\Http\Controllers\ParroquiaController@getP
 //Rutas para descargar excel por campo nuevo 2022
 //Route::middleware(['cors'])->group(function () {
     Route::get('/descarga', Datos::class)->middleware(['auth']);
-    Route::get('/descarga/{id}', [Datos::class, 'vista'])->middleware(['auth']);
-    Route::get('/descargas/descarga-excel', [Datos::class, 'exportExcel'])->middleware(['auth']);
+    Route::get('/descarga/descarga-excel', [Datos::class, 'exportExcel'])->middleware(['auth']);
 //});
