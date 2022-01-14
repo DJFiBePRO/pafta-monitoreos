@@ -15,6 +15,7 @@ use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\DatoController;
 use App\Htpp\Controllers\PlantaController;
 use App\Htpp\Controllers\ParroquiaController;
+use App\Http\Livewire\Varios\Datos;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,5 +61,9 @@ Route::get('plantas/bymonitoreo', 'App\Http\Controllers\PlantaController@getPlan
 Route::resource('plantas', 'App\Http\Controllers\PlantaController')->middleware('admin');
 Route::get('parroquias/bycanton', 'App\Http\Controllers\ParroquiaController@getParroquias')->name('admin.parroquias.bycanton')->middleware('admin');
 
+//nuevo 2022
+Route::get('/descarga',Datos::class)->middleware(['auth']);
+Route::get('/descarga/{id}',[Datos::class,'vista'])->middleware(['auth']);
+Route::get('/descargas/descarga-excel',[Datos::class,'exportExcel'])->middleware(['auth']);
 
 

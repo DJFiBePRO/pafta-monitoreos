@@ -343,6 +343,12 @@ return [
             'can'         => ['1','2','3'],
             'active'       => ['tecnico','regex:@^tecnico/[0-9]+$@', '/dato/*']
         ],
+        [
+            'text'        => 'Descarga',
+            'url'         => 'descarga',
+            'icon'        => 'fas fa-file-download',
+            'can'         => ['1'],
+        ],
         /*['header' => 'CONFIGURACIÓN'],
         [
             'text' => 'Perfil',
@@ -528,5 +534,5 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
