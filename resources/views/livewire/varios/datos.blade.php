@@ -16,7 +16,7 @@
             </div>
         </div>
         <div
-            class="card-body table-responsive">
+            class="card-body">
             <div class="row">
                 <div class="col-sm-12 col-md-6 form-row">
                     <label class="row "><span style="font-weight:normal" class="col">Mostrar</span>
@@ -33,7 +33,8 @@
                 <div class="col-sm-12 col-md-6"></div>
             </div>
 
-            <table id="table"
+            <div class="table-responsive">
+                <table id="table"
                 class="table table-striped table-hover table-bordered table-sm bg-white shadow-lg display nowrap"
                 cellspacing="0" width="100%">
 
@@ -74,6 +75,7 @@
                 </tbody>
             </table>
             {{ $datos->links() }}
+            </div>
         </div>
     </div>
     {{-- @section('js')

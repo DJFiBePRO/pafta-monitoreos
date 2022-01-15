@@ -112,11 +112,5 @@
 @stop
 
 @section('js')
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('js/datatable-general.js')}}"></script>
+@include('js.datatables')
 @stop
