@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ArchivoController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +18,7 @@ class ArchivoController extends Controller
         //
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -60,6 +62,7 @@ class ArchivoController extends Controller
         //
     }
 
+    
     /**
      * Update the specified resource in storage.
      *
