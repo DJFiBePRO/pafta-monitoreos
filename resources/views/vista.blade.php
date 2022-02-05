@@ -36,7 +36,7 @@
             <div class="row align-content-center h-100 px-5">
                 <div class="col-md-8 col-md-offset-2">
                     <img src="img/patfa-1.png" alt=""> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-                    <a class="btn btn-primary pull-right" style="text-align: right;width:220px" href="login"> <center>Ingresar</center></a>
+                    <a class="btn btn-primary pull-right" style="text-align: right;width:220px" href="{{ route('login') }}"> <center>Ingresar</center></a>
                 </div>
             </div>
         </div>
