@@ -26,7 +26,7 @@ class DatosExport implements WithMultipleSheets
         $contador = 1;
 
         $sheets = [];
-
+        //Consulta mediante inner join para generar la vista en excel
         foreach ($estudios as $estudio) {
             $datos_array[] = array('PLANTA', 'FRUTO', 'INCIDENCIA', 'SEVERIDAD', 'FINCA', 'FECHA', 'GENOTIPO', 'CANTON', 'PARROQUIA', 'DENSIDAD');
             $datos = DB::table('monitoreos')

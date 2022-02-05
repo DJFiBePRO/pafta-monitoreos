@@ -18,9 +18,9 @@ class Datos extends Component
     protected $paginationTheme = 'bootstrap';
 
     // private $pagination = 5;
-    public $cant=10;
-    public $sort='numeracion';
-    public $direction='asc';
+    public $cant=10;// ayuada a pagunar en el inner join
+    public $sort='numeracion';//trae el id
+    public $direction='asc';//se usa en la consulta inner join
 
     public function paginationView()
     {
