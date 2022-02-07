@@ -208,24 +208,28 @@ class DatoController extends Controller
     public function actualizar(Request $request)
     {
         $idMonitoreo = $request->idMonitoreo;
-        $idPlanta = $request->idPlanta;
-        $fruto = $request->fruto;
         $incidencia = $request->incidencia;
         $severidad = $request->severidad;
         $observaciones=$request->observaciones;
-        $e=$request->estado;
+        $idDato= $request->idDato;
         for ($i = 0; $i < count($idMonitoreo); $i++) {
             $datasave = [
-                'idMonitoreo' => $idMonitoreo[$i],
-                'idPlanta' => $idPlanta[$i],
-                'fruto' => $fruto[$i],
                 'incidencia' => $incidencia[$i],
                 'severidad' => $severidad[$i],
             ];
-            DB::table('datos')->insert($datasave);
+            $dato=Dato::findOrFail($idDato[$i]);
+
+            if($dato->incidencia!=$incidencia[$i] && $dato->severidad!=$severidad[$i]){
+                Dato::where('id',$idDato[$i])->update($datasave);
+            }
+            //DB::table('datos')->where('id',$idDato[$i])->update($datasave);  
         }
         $ob=$observaciones;
-        Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob,'estado'=>$e]);
+        $monitoreo=Monitoreo::findOrFail($idMonitoreo);
+        if($monitoreo->observaciones!=$ob){
+            Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob]);
+        }
+        //Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob]);
         //return dd($i);
         return redirect('/tecnico')->with('datoModificado', 'Datos modificados con éxito');
     }

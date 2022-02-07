@@ -43,7 +43,7 @@
                     </div>
                     <div class="container col-md-2">
                         <div class="text-center justify-content-center">
-                            <a href="/patfa-monitoreos/public/tecnico" class="btn btn-danger btn-block "><i
+                            <a href="{{url('/tecnico')}}" class="btn btn-danger btn-block "><i
                                     class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                         </div>
                     </div>
@@ -93,7 +93,9 @@
                                     <input class="form-control" type="hidden" name="idMonitoreo[]" tabindex="-1"
                                         value="{{ $monitoreo->id }}">
                                     <input class="form-control" type="hidden" name="idPlanta[]" tabindex="-1"
-                                        value="{{ $dato->codigo }}">
+                                        value="{{ $dato->idPlanta }}">
+                                        <input class="form-control" type="hidden" name="idDato[]" tabindex="-1"
+                                        value="{{ $dato->id }}">
                                     <td><input readonly value="{{ $dato->codigo }}" class="form-control text"
                                             tabindex="-1" name="" id=""></td>
                                     <td><input readonly value="{{ $dato->fruto }}" class="form-control text" tabindex="-1"
@@ -112,6 +114,7 @@
                                                 class="far fa-times-circle" tabindex="-1"></i></button></td>
                                 </tr>
                                 @php
+                                    $contadorFilas++;
                                     $codigoPlanta = $dato->idPlanta;
                                 @endphp
 

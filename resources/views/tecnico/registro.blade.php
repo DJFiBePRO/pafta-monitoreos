@@ -133,7 +133,7 @@
                                     </td>
                                     <td>
                                         @if ($monitoreo->estado == 'no')
-                                            <a href="/patfa-monitoreos/public/dato/{{ $monitoreo->id }}"
+                                            <a href="{{url( '/dato',$monitoreo->id) }}"
                                                 class="btn btn-primary" onClick="this.disabled='disabled'">Ir <i
                                                     class="far fa-arrow-alt-circle-right">
                                                 </i> </a>
@@ -166,12 +166,12 @@
                                 @endif
                                 <td>
                                     @if ($monitoreo->estado == 'no')
-                                        <a href="/patfa-monitoreos/public/dato/{{ $monitoreo->id }}"
+                                        <a href="{{url( '/dato',$monitoreo->id) }}"
                                             class="btn btn-primary" onClick="this.disabled='disabled'">Ir <i
                                                 class="far fa-arrow-alt-circle-right">
                                             </i> </a>
                                     @else
-                                        Completo <a href="/patfa-monitoreos/public/completo/{{ $monitoreo->id }}"
+                                        Completo <a href="{{ url('/completo', [$monitoreo->id]) }}"
                                             class="btn btn-primary"><i class="far fa-list-alt"></i></a>
                                     @endif
                                 </td>
@@ -191,7 +191,7 @@
                                         <td>
                                             @if ($monitoreo->estado == 'si')
                                                 <i class="fas fa-user-check bg-success"></i> {{ $monitoreo->estado }}
-                                                Completo <a href="/patfa-monitoreos/public/completo/{{ $monitoreo->id }}"
+                                                Completo <a href="{{ url('/completo', [$monitoreo->id]) }}"
                                                     class="btn btn-primary"><i class="far fa-list-alt"></i></a>
                                             @else
                                                 <i class="fas fa-exclamation-triangle bg-danger"></i>

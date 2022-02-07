@@ -43,13 +43,17 @@
                     </div>
                     <div class="container col-md-2">
                         <div class="text-center justify-content-center">
-                            <a href="/patfa-monitoreos/public/tecnico" class="btn btn-danger btn-block "><i
+                            <a href="{{url('/tecnico')}}" class="btn btn-danger btn-block "><i
                                     class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="card-body table-responsive">
+                <Label>Observaciones:</Label>
+                <input class="form-control" type="text" name="observaciones" placeholder="Ingrese Observaciones"
+                        value="{{ isset($monitoreo->observaciones) ? $monitoreo->observaciones : '' }}" disabled> <br>
                 <table id="table"
                     class="table table-striped table-hover table-bordered table-sm bg-white shadow-lg display nowrap"
                     cellspacing="0" width="100%">
@@ -67,6 +71,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @php
                             $codigoPlanta = '';
                         @endphp
