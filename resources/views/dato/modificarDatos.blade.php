@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <form class="needs-validation" action="{{url('/dato/guardar')}}" method="POST" novalidate>
+            <form class="needs-validation" action="{{ url('dato/actualizar') }}" method="POST" novalidate>
                 @csrf
                 @php
                     $contadorLineas = 0;
@@ -76,39 +76,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($plantas as $planta)
-                                @for ($i = 1; $i <= 10; $i++)
-                                    <tr
-                                        class="@if ($contadorLineas % 2 == 0) table-success
+                            @php
+                                $codigoPlanta = '';
+                                $pinta = 0;
+                            @endphp
+                            @foreach ($datos as $dato)
+                                @if ($codigoPlanta != $dato->idPlanta)
+                                    @php
+                                        $pinta = $pinta + 1;
+                                    @endphp
+                                @endif
+                                <tr
+                                    class="@if ($pinta % 2 != 0)  table-success
                             @else
                                 table-warning @endif">
-                                        <input class="form-control" type="hidden" name="idMonitoreo[]" tabindex="-1"
-                                            value="{{ $monitoreo->id }}">
-                                        <input class="form-control" type="hidden" name="idPlanta[]" tabindex="-1"
-                                            value="{{ $planta->id }}">
-                                        <td><input readonly value="{{ $planta->codigo }}" class="form-control text" tabindex="-1"
-                                                name="" id=""></td>
-                                        <td><input readonly value="{{ $i }}" class="form-control text" tabindex="-1"
-                                                name="fruto[]" id=""></td>
-                                        <td><input type="text" class="form-control" name="incidencia[]" tabindex="-1"
-                                                id="spTotal-{{ $contadorFilas }}" value="" readonly>
-                                        </td>
-                                        <td><input id="borra-{{ $contadorFilas }}" value="" min="0" max="100" minlength="1" maxlength="3"
-                                                onkeypress="return soloNum(event);"
-                                                onchange="sumar(this.value,{{ $contadorFilas }});"
-                                                tabindex="{{ $contadorFilas+1 }}" class="form-control text"
-                                                name="severidad[]" id="" required>
-                                        </td>
+                                    <input class="form-control" type="hidden" name="idMonitoreo[]" tabindex="-1"
+                                        value="{{ $monitoreo->id }}">
+                                    <input class="form-control" type="hidden" name="idPlanta[]" tabindex="-1"
+                                        value="{{ $dato->codigo }}">
+                                    <td><input readonly value="{{ $dato->codigo }}" class="form-control text"
+                                            tabindex="-1" name="" id=""></td>
+                                    <td><input readonly value="{{ $dato->fruto }}" class="form-control text" tabindex="-1"
+                                            name="fruto[]" id=""></td>
+                                    <td><input type="text" class="form-control" name="incidencia[]" tabindex="-1"
+                                            id="spTotal-{{ $contadorFilas }}" value="{{ $dato->incidencia }}" readonly>
+                                    </td>
+                                    <td><input id="borra-{{ $contadorFilas }}" value="{{ $dato->severidad }}" min="0"
+                                            max="100" minlength="1" maxlength="3" onkeypress="return soloNum(event);"
+                                            onchange="sumar(this.value,{{ $contadorFilas }});"
+                                            tabindex="{{ $contadorFilas + 1 }}" class="form-control text"
+                                            name="severidad[]" id="" required>
+                                    </td>
 
-                                        <td><button type="button" class="btn btn-primary" id="remove" ><i
-                                                    class="far fa-times-circle" tabindex="-1" ></i></button></td>
-                                    </tr>
-                                    @php
-                                        $contadorFilas = $contadorFilas + 1;
-                                    @endphp
-                                @endfor
+                                    <td><button type="button" class="btn btn-primary" id="remove"><i
+                                                class="far fa-times-circle" tabindex="-1"></i></button></td>
+                                </tr>
                                 @php
-                                    $contadorLineas = $contadorLineas + 1;
+                                    $codigoPlanta = $dato->idPlanta;
                                 @endphp
 
                             @endforeach
@@ -116,7 +120,8 @@
                     </table>
                 </div>
                 <div class="container col-md-2">
-                    <button class="btn btn-primary btn-block" tabindex="{{ $contadorFilas+1 }}" @if ($contadorLineas == 0) disabled @endif><i class="far fa-save" > </i>
+                    <button class="btn btn-primary btn-block" tabindex="{{ $contadorFilas + 1 }}"
+                        @if ($contadorLineas == 0) disabled @endif><i class="far fa-save"> </i>
                         Guardar</button>
                 </div>
                 <br>
@@ -164,13 +169,13 @@
             total = (parseInt(valor));
             if (total > 0 && total <= 100) {
                 document.getElementById('spTotal-' + codigoId).value = 1;
-            } else if(total == 0) {
+            } else if (total == 0) {
                 // Colocar el resultado en el control "input".
                 document.getElementById('spTotal-' + codigoId).value = total;
             } else if (total == -1) {
                 // Colocar el resultado en el control "input".
                 document.getElementById('spTotal-' + codigoId).value = 'No existe fruto';
-            } else{
+            } else {
                 //Alerta que informa ingreso del rango de numeros
                 alert("Ingresar solo números entre el rango de -1 a 100");
                 document.getElementById('borra-' + codigoId).value = '';

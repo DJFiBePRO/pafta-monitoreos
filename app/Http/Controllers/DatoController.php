@@ -193,4 +193,40 @@ class DatoController extends Controller
             //return dd($datos);
         return view('dato.completo', compact('datos','monitoreo'));
     }
+    public function modificar($idMonitoreo){
+        $monitoreo = Monitoreo::findorFail($idMonitoreo);
+        $datos = DB::table('datos')
+            ->join('monitoreos', 'monitoreos.id', '=', "datos.idMonitoreo")
+            ->join('plantas', 'plantas.id', '=', "datos.idPlanta")
+            ->select('datos.*','plantas.codigo')
+            ->where('datos.idMonitoreo', $idMonitoreo)
+            ->orderBy('codigo','ASC')
+            ->get();
+            //return dd($datos);
+        return view('dato.modificarDatos', compact('datos','monitoreo'));
+    }
+    public function actualizar(Request $request)
+    {
+        $idMonitoreo = $request->idMonitoreo;
+        $idPlanta = $request->idPlanta;
+        $fruto = $request->fruto;
+        $incidencia = $request->incidencia;
+        $severidad = $request->severidad;
+        $observaciones=$request->observaciones;
+        $e=$request->estado;
+        for ($i = 0; $i < count($idMonitoreo); $i++) {
+            $datasave = [
+                'idMonitoreo' => $idMonitoreo[$i],
+                'idPlanta' => $idPlanta[$i],
+                'fruto' => $fruto[$i],
+                'incidencia' => $incidencia[$i],
+                'severidad' => $severidad[$i],
+            ];
+            DB::table('datos')->insert($datasave);
+        }
+        $ob=$observaciones;
+        Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob,'estado'=>$e]);
+        //return dd($i);
+        return redirect('/tecnico')->with('datoModificado', 'Datos modificados con éxito');
+    }
 }

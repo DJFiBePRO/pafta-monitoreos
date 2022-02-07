@@ -16,10 +16,27 @@
             </button>
         </div>
     @endif
+    @if (session('datoGuardado'))
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ session('datoGuardado') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    
     <!--Mensaje Modificado-->
     @if (session('tecnicoModificado'))
         <div class="alert alert-success alert-dismissible fade show">
             {{ session('tecnicoModificado') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if (session('datoModificado'))
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ session('datoModificado') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
