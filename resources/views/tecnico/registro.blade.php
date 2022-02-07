@@ -138,7 +138,7 @@
                                             Completo <a href="{{ url('/completo', [$monitoreo->id]) }}"
                                                 class="btn btn-primary"><i class="far fa-list-alt"></i></a>
                                             <a href="{{ url('dato/modificar', [$monitoreo->id]) }}"
-                                                class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
                                         @endif
                                     </td>
                                     </tr>
@@ -170,6 +170,8 @@
                                     @else
                                         Completo <a href="{{ url('/completo', [$monitoreo->id]) }}"
                                             class="btn btn-primary"><i class="far fa-list-alt"></i></a>
+                                            <a href="{{ url('dato/modificar', [$monitoreo->id]) }}"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
                                     @endif
                                 </td>
                                 </tr>
