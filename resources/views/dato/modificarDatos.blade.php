@@ -121,7 +121,7 @@
                 </div>
                 <div class="container col-md-2">
                     <button class="btn btn-primary btn-block" tabindex="{{ $contadorFilas + 1 }}"
-                        @if ($contadorLineas == 0) disabled @endif><i class="far fa-save"> </i>
+                        ><i class="far fa-save"> </i>
                         Guardar</button>
                 </div>
                 <br>

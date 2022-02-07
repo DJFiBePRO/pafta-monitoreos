@@ -158,6 +158,7 @@
                                         <td>
                                             @if ($monitoreo->estado == 'si')
                                                 <i class="fas fa-user-check bg-success"></i> {{ $monitoreo->estado }}
+                                                
                                             @else
                                                 <i class="fas fa-exclamation-triangle bg-danger"></i>
                                                 {{ $monitoreo->estado }}
