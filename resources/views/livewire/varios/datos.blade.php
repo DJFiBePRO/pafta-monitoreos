@@ -15,8 +15,7 @@
                 </div>
             </div>
         </div>
-        <div
-            class="card-body">
+        <div class="card-body">
             <div class="row">
                 <div class="col-sm-12 col-md-6 form-row">
                     <label class="row "><span style="font-weight:normal" class="col">Mostrar</span>
@@ -32,49 +31,54 @@
                 </div>
                 <div class="col-sm-12 col-md-6"></div>
             </div>
-
+            @php
+                $ascendente = '<i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>';
+                $descendente = '<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>';
+                $normal = '<i class="fas fa-sort float-right mt-1"></i>';
+            @endphp
             <div class="table-responsive">
                 <table id="table"
-                class="table table-striped table-hover table-bordered table-sm bg-white shadow-lg display nowrap"
-                cellspacing="0" width="100%">
+                    class="table table-striped table-hover table-bordered table-sm bg-white shadow-lg display nowrap"
+                    cellspacing="0" width="100%">
 
-                <thead>
-                    <tr>
-                        <th class="cursor-pointer" wire:click="order('numeracion')"># @if ($sort == 'numeracion')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                        <th class="cursor-pointer" wire:click="order('planta')">PLANTA @if ($sort == 'planta')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                        <th class="cursor-pointer" wire:click="order('fruto')">FRUTO @if ($sort == 'fruto')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                        <th class="cursor-pointer" wire:click="order('incidencia')">INCIDENCIA @if ($sort == 'incidencia')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif
-                        </th>
-                        <th class="cursor-pointer" wire:click="order('severidad')">SEVERIDAD @if ($sort == 'severidad')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif
-                        </th>
-                        <th class="cursor-pointer" wire:click="order('finca')">FINCA @if ($sort == 'finca')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                        <th class="cursor-pointer" wire:click="order('fecha')">FECHA @if ($sort == 'fecha')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                        <th class="cursor-pointer" wire:click="order('canton')">CANTON @if ($sort == 'canton')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                        <th class="cursor-pointer" wire:click="order('parroquia')">PARROQUIA @if ($sort == 'parroquia')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif
-                        </th>
-                        <th class="cursor-pointer" wire:click="order('densidad')">DENSIDAD @if ($sort == 'densidad')@if ($direction == 'asc') <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>@else<i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>@endif @else<i class="fas fa-sort float-right mt-1"></i>@endif</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($datos as $dato)
-                        {{-- @if (auth()->user()->fullacces == 'yes') --}}
+                    <thead>
                         <tr>
-                            <td>{{ $dato->numeracion }}</td>
-                            <td>{{ $dato->planta }}</td>
-                            <td>{{ $dato->fruto }}</td>
-                            <td>{{ $dato->incidencia }}</td>
-                            <td>{{ $dato->severidad }}</td>
-                            <td>{{ $dato->finca }}</td>
-                            <td>{{ $dato->fecha }}</td>
-                            <td>{{ $dato->canton }}</td>
-                            <td>{{ $dato->parroquia }}</td>
-                            <td>{{ $dato->densidad }}</td>
+                            <th class="cursor-pointer" wire:click="order('numeracion')"># @if ($sort == 'numeracion')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('planta')">PLANTA @if ($sort == 'planta')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('fruto')">FRUTO @if ($sort == 'fruto')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('incidencia')">INCIDENCIA
+                                @if ($sort == 'incidencia')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('severidad')">SEVERIDAD
+                                @if ($sort == 'severidad')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('finca')">FINCA @if ($sort == 'finca')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('fecha')">FECHA @if ($sort == 'fecha')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('canton')">CANTON @if ($sort == 'canton')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('parroquia')">PARROQUIA
+                                @if ($sort == 'parroquia')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif</th>
+                            <th class="cursor-pointer" wire:click="order('densidad')">DENSIDAD @if ($sort == 'densidad')@if ($direction == 'asc') {!! $ascendente !!} @else{!! $descendente !!}@endif @else{!! $normal !!}@endif
+                            </th>
                         </tr>
-                        {{-- @endif --}}
-                    @endforeach
-                </tbody>
-            </table>
-            {{ $datos->links() }}
+                    </thead>
+                    <tbody>
+                        @foreach ($datos as $dato)
+                            {{-- @if (auth()->user()->fullacces == 'yes') --}}
+                            <tr>
+                                <td>{{ $dato->numeracion }}</td>
+                                <td>{{ $dato->planta }}</td>
+                                <td>{{ $dato->fruto }}</td>
+                                <td>{{ $dato->incidencia }}</td>
+                                <td>{{ $dato->severidad }}</td>
+                                <td>{{ $dato->finca }}</td>
+                                <td>{{ $dato->fecha }}</td>
+                                <td>{{ $dato->canton }}</td>
+                                <td>{{ $dato->parroquia }}</td>
+                                <td>{{ $dato->densidad }}</td>
+                            </tr>
+                            {{-- @endif --}}
+                        @endforeach
+                    </tbody>
+                </table>
+                {{ $datos->links() }}
             </div>
         </div>
     </div>
