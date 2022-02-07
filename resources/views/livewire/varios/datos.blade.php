@@ -25,7 +25,7 @@
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
-                            <option value="-1">Todos</option>
+                            {{-- <option value="-1">Todos</option> --}}
                         </select>
                         <span style="font-weight:normal" class="col">registros</span></label>
                 </div>

@@ -72,7 +72,7 @@
                                 <th>Frutos</th>
                                 <th>Incidencia </th>
                                 <th>Severidad (%)</th>
-                                <th>Acción</th>
+                                {{-- <th>Acción</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -110,8 +110,8 @@
                                             name="severidad[]" id="" required>
                                     </td>
 
-                                    <td><button type="button" class="btn btn-primary" id="remove"><i
-                                                class="far fa-times-circle" tabindex="-1"></i></button></td>
+                                    {{-- <td><button type="button" class="btn btn-primary" id="remove"><i
+                                                class="far fa-times-circle" tabindex="-1"></i></button></td> --}}
                                 </tr>
                                 @php
                                     $contadorFilas++;

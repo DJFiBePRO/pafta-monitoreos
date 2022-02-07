@@ -43,7 +43,7 @@
                     </div>
                     <div class="container col-md-2">
                         <div class="text-center justify-content-center">
-                            <a href="/patfa-monitoreos/public/tecnico" class="btn btn-danger btn-block "><i
+                            <a href="{{url('tecnico')}}" class="btn btn-danger btn-block "><i
                                     class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                         </div>
                     </div>

@@ -189,6 +189,7 @@ class DatoController extends Controller
             ->select('datos.*','plantas.codigo')
             ->where('datos.idMonitoreo', $idMonitoreo)
             ->orderBy('codigo','ASC')
+            ->orderBy('fruto','ASC')
             ->get();
             //return dd($datos);
         return view('dato.completo', compact('datos','monitoreo'));
@@ -201,6 +202,7 @@ class DatoController extends Controller
             ->select('datos.*','plantas.codigo')
             ->where('datos.idMonitoreo', $idMonitoreo)
             ->orderBy('codigo','ASC')
+            ->orderBy('fruto','ASC')
             ->get();
             //return dd($datos);
         return view('dato.modificarDatos', compact('datos','monitoreo'));
@@ -224,13 +226,11 @@ class DatoController extends Controller
             }
             //DB::table('datos')->where('id',$idDato[$i])->update($datasave);  
         }
-        $ob=$observaciones;
-        $monitoreo=Monitoreo::findOrFail($idMonitoreo);
-        if($monitoreo->observaciones!=$ob){
-            Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob]);
+        $monitoreo=Monitoreo::findOrFail($idMonitoreo[0]);
+        if($monitoreo->observaciones!=$observaciones){
+            Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$observaciones]);
         }
         //Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob]);
-        //return dd($i);
         return redirect('/tecnico')->with('datoModificado', 'Datos modificados con éxito');
     }
 }
