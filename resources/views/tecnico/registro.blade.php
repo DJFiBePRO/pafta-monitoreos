@@ -20,10 +20,26 @@
                     </button>
                 </div>
             @endif
+            @if (session('datoGuardado'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session('datoGuardado') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <!--Mensaje Modificado-->
             @if (session('tecnicoModificado'))
                 <div class="alert alert-success alert-dismissible fade show">
                     {{ session('tecnicoModificado') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if (session('datoModificado'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ session('datoModificado') }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -122,13 +138,14 @@
                                                     class="far fa-arrow-alt-circle-right">
                                                 </i> </a>
                                         @else
-                                        Completo <a href="/patfa-monitoreos/public/completo/{{ $monitoreo->id }}"
-                                            class="btn btn-primary"><i class="far fa-list-alt"></i></a>
+                                            Completo <a href="{{ url('/completo', [$monitoreo->id]) }}"
+                                                class="btn btn-primary"><i class="far fa-list-alt"></i></a>
+                                            <a href="{{ url('dato/modificar', [$monitoreo->id]) }}"
+                                                class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
                                         @endif
                                     </td>
                                     </tr>
-                                @elseif(auth()->user()->id == $monitoreo->idTecnico &&
-                                    auth()->user()->fullacces == 'no')
+                                @elseif(auth()->user()->id == $monitoreo->idTecnico && auth()->user()->fullacces == 'no')
                                     <tr>
                                         <td>{{ $count++ }}</td>
                                         <td>{{ $monitoreo->codigoMonitoreo }}</td>
@@ -173,9 +190,12 @@
                                         <td>
                                             @if ($monitoreo->estado == 'si')
                                                 <i class="fas fa-user-check bg-success"></i> {{ $monitoreo->estado }}
+                                                Completo <a href="/patfa-monitoreos/public/completo/{{ $monitoreo->id }}"
+                                                    class="btn btn-primary"><i class="far fa-list-alt"></i></a>
                                             @else
                                                 <i class="fas fa-exclamation-triangle bg-danger"></i>
                                                 {{ $monitoreo->estado }}
+
                                         </td>
                                 @endif
                                 </td>
@@ -215,15 +235,13 @@
         $(document).ready(function() {
             $("#table").DataTable({
                 dom: 'lBfrtip',
-                buttons: [
-                    {
-                        extend:'excelHtml5',
-                        text: '<i class="fa fa-file-excel"></i>',
-                        titleAttr:'Exportar a excel',
-                        className:'btn btn-success',
-                        title: 'Reporte de Monitoreos'
-                    }
-                ],
+                buttons: [{
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel"></i>',
+                    titleAttr: 'Exportar a excel',
+                    className: 'btn btn-success',
+                    title: 'Reporte de Monitoreos'
+                }],
                 "language": {
                     "processing": "Procesando...",
                     "lengthMenu": "Mostrar _MENU_ registros",

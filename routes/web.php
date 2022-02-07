@@ -53,6 +53,8 @@ Route::get('/dato/{idMonitoreo}', [App\Http\Controllers\DatoController::class, '
 Route::get('/vista/{idMonitoreo}', [App\Http\Controllers\DatoController::class, 'vista'])->middleware(['auth']);
 Route::get('/completo/{idMonitoreo}', [App\Http\Controllers\DatoController::class, 'completo'])->middleware(['auth']);
 Route::post('/dato/guardar', [App\Http\Controllers\DatoController::class, 'guardar'])->middleware(['auth']);
+Route::get('dato/modificar/{idMonitoreo}', [App\Http\Controllers\DatoController::class, 'modificar'])->middleware(['auth']);
+Route::post('/dato/actualizar', [App\Http\Controllers\DatoController::class, 'actualizar'])->middleware(['auth']);
 //Rutas que solo el admin maneja
 Route::resource('estudios', 'App\Http\Controllers\EstudioController')->middleware('admin');
 Route::resource('tecnicos', 'App\Http\Controllers\TecnicoController')->middleware('admin');
