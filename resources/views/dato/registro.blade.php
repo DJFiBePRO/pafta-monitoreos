@@ -72,7 +72,7 @@
                                 <th>Frutos</th>
                                 <th>Incidencia </th>
                                 <th>Severidad (%)</th>
-                                <th>Acción</th>
+                                {{-- <th>Acción</th> --}}
                             </tr>
                         </thead>
                         <tbody>
