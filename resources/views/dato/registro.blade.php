@@ -100,8 +100,8 @@
                                                 name="severidad[]" id="" required>
                                         </td>
 
-                                        <td><button type="button" class="btn btn-primary" id="remove" ><i
-                                                    class="far fa-times-circle" tabindex="-1" ></i></button></td>
+                                        {{-- <td><button type="button" class="btn btn-primary" id="remove" ><i
+                                                    class="far fa-times-circle" tabindex="-1" ></i></button></td> --}}
                                     </tr>
                                     @php
                                         $contadorFilas = $contadorFilas + 1;
