@@ -43,14 +43,14 @@
                     </div>
                     <div class="container col-md-2">
                         <div class="text-center justify-content-center">
-                            <a href="{{url('tecnico')}}" class="btn btn-danger btn-block "><i
+                            <a href="{{ url('tecnico') }}" class="btn btn-danger btn-block "><i
                                     class="far fa-arrow-alt-circle-left"></i> Regresar</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <form class="needs-validation" action="{{url('/dato/guardar')}}" method="POST" novalidate>
+            <form class="needs-validation" action="{{ url('/dato/guardar') }}" method="POST" novalidate>
                 @csrf
                 @php
                     $contadorLineas = 0;
@@ -86,17 +86,17 @@
                                             value="{{ $monitoreo->id }}">
                                         <input class="form-control" type="hidden" name="idPlanta[]" tabindex="-1"
                                             value="{{ $planta->id }}">
-                                        <td><input readonly value="{{ $planta->codigo }}" class="form-control text" tabindex="-1"
-                                                name="" id=""></td>
-                                        <td><input readonly value="{{ $i }}" class="form-control text" tabindex="-1"
-                                                name="fruto[]" id=""></td>
+                                        <td><input readonly value="{{ $planta->codigo }}" class="form-control text"
+                                                tabindex="-1" name="" id=""></td>
+                                        <td><input readonly value="{{ $i }}" class="form-control text"
+                                                tabindex="-1" name="fruto[]" id=""></td>
                                         <td><input type="text" class="form-control" name="incidencia[]" tabindex="-1"
                                                 id="spTotal-{{ $contadorFilas }}" value="" readonly>
                                         </td>
-                                        <td><input id="borra-{{ $contadorFilas }}" value="" min="0" max="100" minlength="1" maxlength="3"
-                                                onkeypress="return soloNum(event);"
+                                        <td><input id="borra-{{ $contadorFilas }}" value="" min="0" max="100"
+                                                minlength="1" maxlength="3" onkeypress="return soloNum(event);"
                                                 onchange="sumar(this.value,{{ $contadorFilas }});"
-                                                tabindex="{{ $contadorFilas+1 }}" class="form-control text"
+                                                tabindex="{{ $contadorFilas + 1 }}" class="form-control text"
                                                 name="severidad[]" id="" required>
                                         </td>
 
@@ -110,14 +110,15 @@
                                 @php
                                     $contadorLineas = $contadorLineas + 1;
                                 @endphp
-
                             @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="container col-md-2">
-                    <button class="btn btn-primary btn-block" tabindex="{{ $contadorFilas+1 }}" @if ($contadorLineas == 0) disabled @endif><i class="far fa-save" > </i>
+                    <button id="guardar" class="btn btn-primary btn-block" tabindex="{{ $contadorFilas + 1 }}"
+                        @if ($contadorLineas === 0) disabled @endif><i class="far fa-save"> </i>
                         Guardar</button>
+                    <div id="guardando"></div>
                 </div>
                 <br>
             </form>
@@ -137,6 +138,7 @@
             window.addEventListener('load', function() {
                 // Fetch all the forms we want to apply custom Bootstrap validation styles to
                 var forms = document.getElementsByClassName('needs-validation');
+
                 // Loop over them and prevent submission
                 var validation = Array.prototype.filter.call(forms, function(form) {
                     form.addEventListener('submit', function(event) {
@@ -145,6 +147,17 @@
                             event.stopPropagation();
                         }
                         form.classList.add('was-validated');
+
+                        // if (form.checkValidity() === true) {
+                        //     const btnGuardar = document.getElementById("guardar");
+                        //     btnGuardar.addEventListener("click", () => {
+                        //         btnGuardar.disabled = true;
+                        //         const msgGuardando = document.getElementById(
+                        //             "guardando")
+                        //         msgGuardando.innerHTML = "Guardando..."
+                        //     })
+                        // }
+
                     }, false);
                 });
             }, false);
@@ -164,13 +177,13 @@
             total = (parseInt(valor));
             if (total > 0 && total <= 100) {
                 document.getElementById('spTotal-' + codigoId).value = 1;
-            } else if(total == 0) {
+            } else if (total == 0) {
                 // Colocar el resultado en el control "input".
                 document.getElementById('spTotal-' + codigoId).value = total;
             } else if (total == -1) {
                 // Colocar el resultado en el control "input".
                 document.getElementById('spTotal-' + codigoId).value = 'No existe fruto';
-            } else{
+            } else {
                 //Alerta que informa ingreso del rango de numeros
                 alert("Ingresar solo números entre el rango de -1 a 100");
                 document.getElementById('borra-' + codigoId).value = '';

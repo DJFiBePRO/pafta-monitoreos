@@ -21,11 +21,11 @@ class DatoController extends Controller
     {
         //
         $datos = DB::table('datos')
-        ->join('monitoreos','datos.idMonitoreo', '=','monitoreos.id')
-        ->join('plantas','datos.idPlanta', '=','plantas.id')
-        ->join('estudios','monitoreos.idEstudio', '=','estudios.id')
-        ->select('datos.id','monitoreos.codigo as codigoMonitoreo','estudios.codigo as codigoEstudio','estudios.nombreEstudio','plantas.codigo as codigoPlanta','datos.fruto','datos.incidencia','datos.severidad','monitoreos.observaciones','monitoreos.idTecnico')
-        ->get();
+            ->join('monitoreos', 'datos.idMonitoreo', '=', 'monitoreos.id')
+            ->join('plantas', 'datos.idPlanta', '=', 'plantas.id')
+            ->join('estudios', 'monitoreos.idEstudio', '=', 'estudios.id')
+            ->select('datos.id', 'monitoreos.codigo as codigoMonitoreo', 'estudios.codigo as codigoEstudio', 'estudios.nombreEstudio', 'plantas.codigo as codigoPlanta', 'datos.fruto', 'datos.incidencia', 'datos.severidad', 'monitoreos.observaciones', 'monitoreos.idTecnico')
+            ->get();
         //return dd($datos);
         return view('dato.index', compact('datos'));
     }
@@ -33,22 +33,22 @@ class DatoController extends Controller
     {
         //
         $tecnicos = DB::table('monitoreos')
-        ->join('estudios','monitoreos.idEstudio', '=','estudios.id')
-        ->select('monitoreos.idTecnico','estudios.id as idEstudio','estudios.codigo','estudios.nombreEstudio')
-        ->distinct()
-        ->get();
+            ->join('estudios', 'monitoreos.idEstudio', '=', 'estudios.id')
+            ->select('monitoreos.idTecnico', 'estudios.id as idEstudio', 'estudios.codigo', 'estudios.nombreEstudio')
+            ->distinct()
+            ->get();
         $datos = DB::table('datos')
-        ->join('monitoreos','datos.idMonitoreo', '=','monitoreos.id')
-        ->join('plantas','datos.idPlanta', '=','plantas.id')
-        ->join('estudios','monitoreos.idEstudio', '=','estudios.id')
-        ->select('datos.id','monitoreos.codigo as codigoMonitoreo','estudios.codigo as codigoEstudio','estudios.nombreEstudio','plantas.codigo as codigoPlanta','datos.fruto','datos.incidencia','datos.severidad','monitoreos.observaciones','monitoreos.idTecnico')
-        ->get();
-        $estudios= Estudio::all();
+            ->join('monitoreos', 'datos.idMonitoreo', '=', 'monitoreos.id')
+            ->join('plantas', 'datos.idPlanta', '=', 'plantas.id')
+            ->join('estudios', 'monitoreos.idEstudio', '=', 'estudios.id')
+            ->select('datos.id', 'monitoreos.codigo as codigoMonitoreo', 'estudios.codigo as codigoEstudio', 'estudios.nombreEstudio', 'plantas.codigo as codigoPlanta', 'datos.fruto', 'datos.incidencia', 'datos.severidad', 'monitoreos.observaciones', 'monitoreos.idTecnico')
+            ->get();
+        $estudios = Estudio::all();
         // return dd($estudios);
-        return view('dato.vista', compact('datos','tecnicos','estudios'));
+        return view('dato.vista', compact('datos', 'tecnicos', 'estudios'));
     }
 
-    
+
 
     public function registro()
     {
@@ -97,8 +97,8 @@ class DatoController extends Controller
         $fruto = $request->fruto;
         $incidencia = $request->incidencia;
         $severidad = $request->severidad;
-        $observaciones=$request->observaciones;
-        $e=$request->estado;
+        $observaciones = $request->observaciones;
+        $e = $request->estado;
         for ($i = 0; $i < count($idMonitoreo); $i++) {
             $datasave = [
                 'idMonitoreo' => $idMonitoreo[$i],
@@ -107,10 +107,21 @@ class DatoController extends Controller
                 'incidencia' => $incidencia[$i],
                 'severidad' => $severidad[$i],
             ];
-            DB::table('datos')->insert($datasave);
+
+            $existe = DB::table('datos')
+                ->where('idMonitoreo', $idMonitoreo[$i])
+                ->where('idPlanta', $idPlanta[$i])
+                ->where('fruto', $fruto[$i])
+                ->where('incidencia', $incidencia[$i])
+                ->where('severidad', $severidad[$i])
+                ->exists();
+
+            if (!$existe) {
+                DB::table('datos')->insert($datasave);
+            }
         }
-        $ob=$observaciones;
-        Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob,'estado'=>$e]);
+        $ob = $observaciones;
+        Monitoreo::where('id', $idMonitoreo)->update(['observaciones' => $ob, 'estado' => $e]);
         //return dd($i);
         return redirect('/tecnico')->with('datoGuardado', 'Dato guardado con éxito');
     }
@@ -177,58 +188,60 @@ class DatoController extends Controller
             ->join('monitoreos', 'plantas.idEstudio', '=', "monitoreos.idEstudio")
             ->select('plantas.*')
             ->where('monitoreos.id', $idMonitoreo)
-            ->orderBy('codigo','ASC')
+            ->orderBy('codigo', 'ASC')
             ->get();
         return view('dato.registro', compact('plantas', 'monitoreo'));
     }
-    public function completo($idMonitoreo){
+    public function completo($idMonitoreo)
+    {
         $monitoreo = Monitoreo::findorFail($idMonitoreo);
         $datos = DB::table('datos')
             ->join('monitoreos', 'monitoreos.id', '=', "datos.idMonitoreo")
             ->join('plantas', 'plantas.id', '=', "datos.idPlanta")
-            ->select('datos.*','plantas.codigo')
+            ->select('datos.*', 'plantas.codigo')
             ->where('datos.idMonitoreo', $idMonitoreo)
-            ->orderBy('codigo','ASC')
-            ->orderBy('fruto','ASC')
+            ->orderBy('codigo', 'ASC')
+            ->orderBy('fruto', 'ASC')
             ->get();
-            //return dd($datos);
-        return view('dato.completo', compact('datos','monitoreo'));
+        //return dd($datos);
+        return view('dato.completo', compact('datos', 'monitoreo'));
     }
-    public function modificar($idMonitoreo){
+    public function modificar($idMonitoreo)
+    {
         $monitoreo = Monitoreo::findorFail($idMonitoreo);
         $datos = DB::table('datos')
             ->join('monitoreos', 'monitoreos.id', '=', "datos.idMonitoreo")
             ->join('plantas', 'plantas.id', '=', "datos.idPlanta")
-            ->select('datos.*','plantas.codigo')
+            ->select('datos.*', 'plantas.codigo')
             ->where('datos.idMonitoreo', $idMonitoreo)
-            ->orderBy('codigo','ASC')
-            ->orderBy('fruto','ASC')
+            ->orderBy('codigo', 'ASC')
+            ->orderBy('fruto', 'ASC')
             ->get();
-            //return dd($datos);
-        return view('dato.modificarDatos', compact('datos','monitoreo'));
+        //return dd($datos);
+        return view('dato.modificarDatos', compact('datos', 'monitoreo'));
     }
     public function actualizar(Request $request)
     {
         $idMonitoreo = $request->idMonitoreo;
         $incidencia = $request->incidencia;
         $severidad = $request->severidad;
-        $observaciones=$request->observaciones;
-        $idDato= $request->idDato;
+        $observaciones = $request->observaciones;
+        $idDato = $request->idDato;
         for ($i = 0; $i < count($idMonitoreo); $i++) {
             $datasave = [
                 'incidencia' => $incidencia[$i],
                 'severidad' => $severidad[$i],
             ];
-            $dato=Dato::findOrFail($idDato[$i]);
+            $dato = Dato::findOrFail($idDato[$i]);
 
-            if($dato->incidencia!=$incidencia[$i] && $dato->severidad!=$severidad[$i]){
-                Dato::where('id',$idDato[$i])->update($datasave);
+            if ($dato->incidencia != $incidencia[$i] && $dato->severidad != $severidad[$i]) {
+                Dato::where('id', $idDato[$i])->update($datasave);
             }
             //DB::table('datos')->where('id',$idDato[$i])->update($datasave);  
         }
-        $monitoreo=Monitoreo::findOrFail($idMonitoreo[0]);
-        if($monitoreo->observaciones!=$observaciones){
-            Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$observaciones]);
+        $monitoreo = Monitoreo::findOrFail($idMonitoreo[0]);
+        if ($monitoreo->observaciones != $observaciones) {
+            Monitoreo::where('id', $idMonitoreo)->update(['observaciones' => $observaciones]);
         }
         //Monitoreo::where('id',$idMonitoreo)->update(['observaciones'=>$ob]);
         return redirect('/tecnico')->with('datoModificado', 'Datos modificados con éxito');
