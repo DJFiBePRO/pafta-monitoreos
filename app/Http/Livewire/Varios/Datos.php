@@ -76,7 +76,7 @@ class Datos extends Component
 
     public function exportExcel()
     {
-        return Excel::download( new DatosExport, 'datos.xlsx' );
+        return Excel::download( new DatosExport, 'datos '.date("Y-m-d").'.xlsx' );
     }
     
     public function order($sort){
